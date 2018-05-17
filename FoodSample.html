@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<style>
+	.display {
+	height: 120px;
+	width: 300px;
+	background: #dddfd4;
+	margin: 30px auto 0;
+	display: block;
+	font-size: 30px;
+	text-align: center;
+	text-justify: center;
+	border-radius: 6px;
+	color: #black;
+	transition: 1s linear;
+	border: inset;
+}
+
+.button {
+	background: #fae596;
+	border: 0;
+	color: #000000;
+	font-size: 16px;
+	padding: 1em 2em;
+	margin: 0 auto 60px;
+	display: block;
+	text-align: center;
+	border-radius: 6px;
+	font-weight: bold;
+	border: outset;
+}
+.body {
+	display: flex;
+	flex: 1;
+	flex-wrap: wrap;
+	justify-content: center;
+	font-family: 'Courier New', Courier, monospace;
+	background: #3fb0ac;
+	min-height: 100vh;
+	flex-direction: column;
+}
+
+.buffer {
+	height: 50px;
+}
+	</style>
+	<title>What To Eat</title>
+</head>
+<body class='body'>
+	<header>
+		<center>
+			<h1>What To Eat</h1>
+		</center>
+	</header>
+	<div>
+		<div class='display' id='display'></div>
+		<div class='buffer'></div>
+		<button class='button' onclick='makeMeal()'>Generate Meal</button>
+	</div>
+	<script>
+	var meal = [
+'pasta/noodles',
+'with rice',
+'soup',
+'salad',
+'tacos',
+'sandwich',
+'bowl',
+'casserole',
+'with veggies',
+'open face',
+'pizza',
+'on a stick'
+]
+var protean = [
+'chicken',
+'shrimp',
+'salmon',
+'trout',
+'tuna',
+'mahi-mahi',
+'bean',
+'lobster',
+'crab',
+'turkey'
+]
+var style = [
+'grilled',
+'stir-fry',
+'brazed',
+'fried',
+'blackened',
+'baked',
+'sauteed',
+'maranera',
+'peanut',
+'cajun',
+'southern',
+'jerk',
+'spicy',
+'Baja',
+'marsala',
+'curry',
+'terriaki'
+]
+function makeMeal() {
+	var randomNo1 = Math.floor(Math.random() * (meal.length));
+	var randomNo2 = Math.floor(Math.random() * (protean.length));
+	var randomNo3 = Math.floor(Math.random() * (style.length));
+	document.getElementById('display').innerHTML = style[randomNo3] + ' ' + protean[randomNo2] + ' ' + meal[randomNo1];
+}
+	</script>
+</body>
+</html>
